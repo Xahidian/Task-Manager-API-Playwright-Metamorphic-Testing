@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    description: { type: String, required: true },
-    status: { type: String, required: true },
-    dueDate: { type: Date, required: true },
-    priority: { type: String, required: true },
-    completed: { type: Boolean, required: true }
-}, { timestamps: true });
+    title: { type: String, required: true, unique: true },  // Enforce uniqueness
+    description: { type: String },
+    status: { type: String, enum: ["Pending", "Completed"], default: "Pending" },
+    dueDate: { type: Date },
+    priority: { type: String, enum: ["Low", "Medium", "High"], default: "Medium" },
+    completed: { type: Boolean, default: false }
+});
+
 
 module.exports = mongoose.models.Task || mongoose.model('Task', taskSchema);
