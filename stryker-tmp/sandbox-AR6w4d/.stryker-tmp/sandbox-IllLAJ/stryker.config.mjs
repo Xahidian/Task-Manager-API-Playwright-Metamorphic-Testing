@@ -1,0 +1,12 @@
+// @ts-nocheck
+// 
+export default {
+  mutate: ["controllers/**/*.js"], // Files to mutate
+  testRunner: "command", // Playwright test runner
+  commandRunner: {
+    command: "npx playwright test" // Run Playwright tests
+  },
+  reporters: ["html", "clear-text", "progress"], // Mutation report formats
+  concurrency: 1, // Run tests sequentially
+  timeoutMS: 600000, // Prevent timeout issues
+};
