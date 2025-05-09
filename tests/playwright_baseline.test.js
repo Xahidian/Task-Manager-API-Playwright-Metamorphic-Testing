@@ -1,4 +1,5 @@
-import { test, expect, request } from '@playwright/test';
+const { test, expect } = require('@playwright/test');
+
 
 const BASE_URL = 'http://localhost:5000/api/tasks';
 let createdTaskId; // Store task ID for reuse
@@ -147,6 +148,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
      * ✅ PUT /api/tasks/:id - should update a task
      */
     test('PUT /api/tasks/:id - should update a task', async ({ request }) => {
+        // Define the updated task data
         const updatedTask = {
             title: "Updated Task Title",
             description: "Updated Description",
@@ -155,13 +157,15 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
             priority: "Low",
             completed: true
         };
-
+      // Send PUT request to update the existing task
         const updateResponse = await request.put(`${BASE_URL}/${createdTaskId}`, { data: updatedTask });
         expect(updateResponse.status()).toBe(200);
-
+    
+    // Send GET request to retrieve the updated task
         const getResponse = await request.get(`${BASE_URL}/${createdTaskId}`);
         const taskAfterUpdate = await getResponse.json();
 
+    // Validate that the task has the updated values
         expect(taskAfterUpdate.title).toBe("Updated Task Title");
         expect(taskAfterUpdate.completed).toBe(true);
     });
@@ -196,5 +200,77 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
             }
         }
     });
+
+/**
+  Newly Added Test
+     */
+
+/**
+  should return 404 for non-existent task
+     */
+    test('GET /api/tasks/:id - should return 404 for non-existent task', async ({ request }) => {
+  const fakeId = '64dbf3a2fc13ae4b18000000'; // Valid format but doesn't exist
+  const response = await request.get(`${BASE_URL}/${fakeId}`);
+  expect(response.status()).toBe(404);
+  const body = await response.json();
+  expect(body.error).toContain('Task not found');
+});
+/**
+  should return 404 when updating non-existent task
+     */
+    test('PUT /api/tasks/:id - should return 404 when updating non-existent task', async ({ request }) => {
+  const fakeId = '64dbf3a2fc13ae4b18000000';
+  const update = { title: "Will Not Work" };
+  const response = await request.put(`${BASE_URL}/${fakeId}`, { data: update });
+  expect(response.status()).toBe(404);
+  const body = await response.json();
+  expect(body.error).toContain('Task not found');
+});
+
+/**
+  should return 404 for non-existent task
+     */
+    test('DELETE /api/tasks/:id - should return 404 for non-existent task', async ({ request }) => {
+  const fakeId = '64dbf3a2fc13ae4b18000000';
+  const response = await request.delete(`${BASE_URL}/${fakeId}`);
+  expect(response.status()).toBe(404);
+  const body = await response.json();
+  expect(body.error).toContain('Task not found');
+});
+
+    /**
+  should delete all tasks and return 204
+     */
+    test('DELETE /api/tasks/all - should delete all tasks and return 204', async ({ request }) => {
+  const response = await request.delete(`${BASE_URL}/all`);
+  expect(response.status()).toBe(204);
+
+  const checkResponse = await request.get(BASE_URL);
+  const tasks = await checkResponse.json();
+  expect(tasks.length).toBe(0);
+});
+test('GET /api/tasks/:id - should return 404 if task not found', async ({ request }) => {
+    const nonExistentId = '605c72b52f4b5c23d8f1d888'; // well-formed but doesn't exist
+    const response = await request.get(`${BASE_URL}/${nonExistentId}`);
+    expect(response.status()).toBe(404);
+    const body = await response.json();
+    expect(body.error).toContain("Task not found");
+});
+test('PUT /api/tasks/:id - should return 404 if task not found', async ({ request }) => {
+    const nonExistentId = '605c72b52f4b5c23d8f1d889';
+    const response = await request.put(`${BASE_URL}/${nonExistentId}`, {
+        data: { title: "Won't update" }
+    });
+    expect(response.status()).toBe(404);
+});
+test('DELETE /api/tasks/:id - should return 404 if task not found', async ({ request }) => {
+    const nonExistentId = '605c72b52f4b5c23d8f1d890';
+    const response = await request.delete(`${BASE_URL}/${nonExistentId}`);
+    expect(response.status()).toBe(404);
+});
+test('DELETE /api/tasks/all - should delete all tasks', async ({ request }) => {
+    const response = await request.delete(`${BASE_URL}/all`);
+    expect(response.status()).toBe(204);
+});
 
 });

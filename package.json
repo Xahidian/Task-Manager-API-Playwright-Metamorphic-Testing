@@ -1,11 +1,12 @@
 {
   "name": "task-manager-api",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server.js",
-    "test": "npx playwright test"
-  },
+  "main": "server.js",
+ "scripts": {
+  "start": "node server.js",
+  "test:baseline": "npx playwright test tests/playwright_baseline.test.js --workers=1",
+  "test:MR": "npx playwright test tests/playwright_metamorphic.test.js --workers=1"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
