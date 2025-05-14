@@ -187,5 +187,53 @@ test('MR5: Order independence - Task retrieval should be consistent', async ({ r
         expect(taskAfterUpdate.title).toBe(taskBeforeUpdate.title);
         expect(taskAfterUpdate.priority).toBe(taskBeforeUpdate.priority);
     });
+    test('MR8: Create–Delete cancellation should leave system state unchanged', async ({ request }) => {
+    // Step 1: Get task count before
+    const beforeRes = await request.get(BASE_URL);
+    const beforeTasks = await beforeRes.json();
+    const beforeCount = beforeTasks.length;
+
+    // Step 2: Create a temporary task
+    const task = {
+        title: `Temp Task - ${Date.now()}`,
+        description: "Temporary task",
+        dueDate: "2025-12-31T23:59:59.000Z",
+        priority: "Low",
+        completed: false
+    };
+
+    const createRes = await request.post(BASE_URL, { data: task });
+    expect(createRes.status()).toBe(201);
+
+    const createdTaskId = (await createRes.json())._id;
+
+    // Step 3: Delete the newly created task
+    const deleteRes = await request.delete(`${BASE_URL}/${createdTaskId}`);
+    expect(deleteRes.status()).toBe(204);
+
+    // Step 4: Get task count after create-delete sequence
+    const afterRes = await request.get(BASE_URL);
+    const afterTasks = await afterRes.json();
+    const afterCount = afterTasks.length;
+
+    // Step 5: Check state remains the same
+    expect(afterCount).toBe(beforeCount);
+});
+test('MR9: Calling DELETE /all twice should be safe and idempotent', async ({ request }) => {
+    // First delete
+    const firstDelete = await request.delete(`${BASE_URL}/all`);
+    expect(firstDelete.status()).toBe(204);
+
+    // Second delete (no tasks should exist)
+    const secondDelete = await request.delete(`${BASE_URL}/all`);
+    expect(secondDelete.status()).toBe(204);
+
+    // Confirm no tasks remain
+    const after = await request.get(BASE_URL);
+    const tasks = await after.json();
+    expect(tasks.length).toBe(0);
+});
+
+
 
 });

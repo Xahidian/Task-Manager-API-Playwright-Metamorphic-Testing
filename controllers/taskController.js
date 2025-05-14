@@ -1,37 +1,35 @@
 const mongoose = require('mongoose');
 const Task = require('../models/Task');
 const moment = require('moment'); // ✅ Stronger date validation
+const { log } = require('../coverageLogger');
+
+console.log("✅ taskController loaded");
 
 // Create a new task
 exports.createTask = async (req, res) => {
+    log('createTask');
     try {
         const { title, dueDate, priority } = req.body;
 
-        // ✅ STRONG Title validation (prevents bypass)
         if (!title || typeof title !== "string" || title.trim().length === 0) {
             return res.status(400).json({ error: "Title is required and must be a non-empty string." });
         }
 
-        // ✅ Ensure title is case-insensitive but stored as provided
         const existingTask = await Task.findOne({ title: new RegExp(`^${title.trim()}$`, 'i') });
         if (existingTask) {
             return res.status(400).json({ error: "A task with this title already exists." });
         }
 
-        // ✅ Strong Due Date validation using moment.js (ensures correct format)
         if (dueDate && !moment(dueDate, moment.ISO_8601, true).isValid()) {
-            console.log("❌ Invalid dueDate rejected:", dueDate);  // Debugging
+            console.log("❌ Invalid dueDate rejected:", dueDate);
             return res.status(400).json({ error: "Invalid due date format. Must be in ISO 8601 format." });
         }
-        
 
-        // ✅ Hardened Priority validation
         const allowedPriorities = new Set(["Low", "Medium", "High"]);
         if (priority && !allowedPriorities.has(priority)) {
             return res.status(400).json({ error: "Invalid priority value. Must be 'Low', 'Medium', or 'High'." });
         }
 
-        // ✅ Create task while preserving title case
         const task = await Task.create({ ...req.body, title: title.trim() });
         res.status(201).json(task);
     } catch (error) {
@@ -42,6 +40,7 @@ exports.createTask = async (req, res) => {
 
 // Get all tasks
 exports.getTasks = async (req, res) => {
+    log('getTasks');
     try {
         const tasks = await Task.find().sort({ createdAt: 1 }).lean();
         res.status(200).json(tasks);
@@ -53,12 +52,12 @@ exports.getTasks = async (req, res) => {
 
 // Get a task by ID
 exports.getTaskById = async (req, res) => {
+    log('getTaskById');
     try {
         console.log("Fetching Task with ID:", req.params.id);
 
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             console.log("🚨 Received Invalid ID:", req.params.id);
-
             return res.status(400).json({ error: "Invalid task ID format." });
         }
 
@@ -78,10 +77,10 @@ exports.getTaskById = async (req, res) => {
 
 // Update a task
 exports.updateTask = async (req, res) => {
+    log('updateTask');
     try {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             console.log("🚨 Received Invalid ID:", req.params.id);
-
             return res.status(400).json({ error: "Invalid task ID format." });
         }
 
@@ -119,10 +118,10 @@ exports.updateTask = async (req, res) => {
 
 // Delete a task
 exports.deleteTask = async (req, res) => {
+    log('deleteTask');
     try {
         if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
             console.log("🚨 Received Invalid ID:", req.params.id);
-
             return res.status(400).json({ error: "Invalid task ID format." });
         }
 
@@ -133,6 +132,7 @@ exports.deleteTask = async (req, res) => {
 
         await Task.findByIdAndDelete(req.params.id);
         res.status(204).send();
+        console.log("🔥 deleteTask logic hit");
     } catch (error) {
         console.error("Error deleting task:", error.message || error);
         res.status(500).json({ error: "Internal Server Error" });
@@ -141,10 +141,12 @@ exports.deleteTask = async (req, res) => {
 
 // Delete all tasks
 exports.deleteAllTasks = async (req, res) => {
+    log('deleteAllTasks');
     try {
         console.log("Deleting all tasks...");
         await Task.deleteMany({});
         res.status(204).send();
+        console.log("🔥 deleteAllTasks logic hit");
     } catch (error) {
         console.error("Error deleting all tasks:", error.message || error);
         res.status(500).json({ error: "Internal Server Error" });
