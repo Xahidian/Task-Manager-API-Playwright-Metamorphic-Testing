@@ -7,7 +7,7 @@ let createdTaskId; // Store task ID for reuse
 test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation Score)', () => {
 
     /**
-     * ✅ Before each test: Create a task so tests have valid data.
+     *  Before each test: Create a task so tests have valid data.
      */
     test.beforeEach(async ({ request }) => {
         const newTask = {
@@ -26,7 +26,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
     });
 
     /**
-     * ✅ Cleanup after each test: Delete the created task.
+     *  Cleanup after each test: Delete the created task.
      */
     test.afterEach(async ({ request }) => {
         if (createdTaskId) {
@@ -35,7 +35,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
     });
 
     /**
-     * ✅ GET /api/tasks - Retrieve all tasks.
+     *  GET /api/tasks - Retrieve all tasks.
      */
     test('GET /api/tasks - should return all tasks', async ({ request }) => {
         const response = await request.get(BASE_URL);
@@ -48,7 +48,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
     });
 
     /**
-     * ✅ POST /api/tasks - Create a new task.
+     *  POST /api/tasks - Create a new task.
      */
     test('POST /api/tasks - should create a new task', async ({ request }) => {
         const uniqueTitle = `New Task ${Date.now()}`;
@@ -70,7 +70,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
     });
 
     /**
-     * ✅ GET /api/tasks/:id - Fetch a specific task.
+     *  GET /api/tasks/:id - Fetch a specific task.
      */
     test('GET /api/tasks/:id - should return a specific task', async ({ request }) => {
         const response = await request.get(`${BASE_URL}/${createdTaskId}`);
@@ -82,7 +82,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
     });
 
     /**
-     * ✅ Edge Case: Title Validation (Fixed)
+     *  Edge Case: Title Validation (Fixed)
      */
     test('POST /api/tasks - should reject missing, empty, and non-string titles', async ({ request }) => {
         const invalidTitles = [undefined, null, "", 12345, {}, [], true, false, "   "];
@@ -104,7 +104,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
             if (response.status() === 400) {
                 console.log(`✅ API correctly returned 400 for invalid title: "${title}"`);
                 expect(responseBody).toHaveProperty("error", "Title is required and must be a non-empty string.");
- // 🔥 FIXED: Updated assertion
+ //  FIXED: Updated assertion
             } else {
                 throw new Error(`❌ Unexpected response: ${response.status()} with body: ${JSON.stringify(responseBody)}`);
             }
@@ -112,7 +112,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
     });
 
     /**
-     * ✅ Edge Case: Invalid DueDate Formats (Improved)
+     *  Edge Case: Invalid DueDate Formats (Improved)
      */
     test('POST /api/tasks - should reject invalid dueDate formats', async ({ request }) => {
         const invalidDates = ["not-a-date", "2025-13-32", 123456789, null, "", "30-02-2025"];
@@ -133,7 +133,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
     });
 
     /**
-     * ✅ PUT /api/tasks/:id - should reject invalid updates
+     *  PUT /api/tasks/:id - should reject invalid updates
      */
     test('PUT /api/tasks/:id - should reject invalid updates', async ({ request }) => {
         const invalidUpdates = [{ priority: "Extreme" }, { dueDate: "invalid-date" }, { completed: "not-a-boolean" }];
@@ -145,7 +145,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
     });
 
     /**
-     * ✅ PUT /api/tasks/:id - should update a task
+     *  PUT /api/tasks/:id - should update a task
      */
     test('PUT /api/tasks/:id - should update a task', async ({ request }) => {
         // Define the updated task data
@@ -171,7 +171,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
     });
 
     /**
-     * ✅ DELETE /api/tasks/:id - should delete a task
+     *  DELETE /api/tasks/:id - should delete a task
      */
     test('DELETE /api/tasks/:id - should delete a task', async ({ request }) => {
         const deleteResponse = await request.delete(`${BASE_URL}/${createdTaskId}`);
@@ -182,7 +182,7 @@ test.describe('Comprehensive Playwright API Tests (Optimized for Higher Mutation
     });
 
     /**
-     * ✅ Additional Edge Cases (Fixed)
+     *  Additional Edge Cases (Fixed)
      */
     test('GET /api/tasks/:id - should return 400 for invalid ID format', async ({ request }) => {
         const invalidIds = ["123-invalid-id", " ", "", null, 12345, "invaliduuid"];

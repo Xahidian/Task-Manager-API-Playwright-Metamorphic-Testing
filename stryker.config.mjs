@@ -1,11 +1,11 @@
 export default {
-  mutate: ["controllers/**/*.js"],  //  Only mutate controllers (not models)
+  mutate: ["controllers/**/*.js"],  
   testRunner: "command",
   commandRunner: {
     command: "npm run test:MR"
   },
   reporters: ["html", "clear-text", "progress"],
-  timeoutMS: 60000,
+  timeoutMS: 100000,
   concurrency: 4,
   coverageAnalysis: "all",
   

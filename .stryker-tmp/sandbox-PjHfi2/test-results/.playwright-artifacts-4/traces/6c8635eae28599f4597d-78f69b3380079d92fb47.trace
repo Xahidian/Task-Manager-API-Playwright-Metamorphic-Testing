@@ -1,0 +1,121 @@
+{"version":7,"type":"context-options","origin":"library","browserName":"","options":{},"platform":"win32","wallTime":1747390732690,"monotonicTime":2354.807,"sdkLanguage":"javascript","title":"playwright_metamorphic.test.js:308 › Masters Thesis: Case Study 3 › MR8: Create–Delete cancellation should leave system state unchanged"}
+{"type":"before","callId":"call@6","startTime":2386.431,"apiName":"apiRequestContext.post","class":"APIRequestContext","method":"fetch","params":{"url":"http://localhost:5000/api/tasks","method":"POST","jsonData":"{\"title\":\"Task 1 - 1747390732704\",\"description\":\"Task for testing\",\"dueDate\":\"2025-12-31T23:59:59.000Z\",\"priority\":\"Medium\",\"completed\":false}"},"stepId":"pw:api@5","beforeSnapshot":"before@call@6"}
+{"type":"log","callId":"call@6","time":2423.36,"message":"→ POST http://localhost:5000/api/tasks"}
+{"type":"log","callId":"call@6","time":2423.497,"message":"  user-agent: Playwright/1.50.1 (x64; windows 10.0) node/22.13"}
+{"type":"log","callId":"call@6","time":2423.542,"message":"  accept: */*"}
+{"type":"log","callId":"call@6","time":2423.571,"message":"  accept-encoding: gzip,deflate,br"}
+{"type":"log","callId":"call@6","time":2423.604,"message":"  content-type: application/json"}
+{"type":"log","callId":"call@6","time":2423.637,"message":"  content-length: 142"}
+{"type":"log","callId":"call@6","time":2457.807,"message":"← 201 Created"}
+{"type":"log","callId":"call@6","time":2457.9049999999997,"message":"  x-powered-by: Express"}
+{"type":"log","callId":"call@6","time":2457.959,"message":"  access-control-allow-origin: *"}
+{"type":"log","callId":"call@6","time":2458.024,"message":"  content-type: application/json; charset=utf-8"}
+{"type":"log","callId":"call@6","time":2458.072,"message":"  content-length: 202"}
+{"type":"log","callId":"call@6","time":2458.102,"message":"  etag: W/\"ca-uDpOTDpTrigAeTONQdsA21Oifwk\""}
+{"type":"log","callId":"call@6","time":2458.126,"message":"  date: Fri, 16 May 2025 10:18:52 GMT"}
+{"type":"log","callId":"call@6","time":2458.1440000000002,"message":"  connection: keep-alive"}
+{"type":"log","callId":"call@6","time":2458.165,"message":"  keep-alive: timeout=5"}
+{"type":"after","callId":"call@6","endTime":2458.761,"result":{"response":{"url":"http://localhost:5000/api/tasks","status":201,"statusText":"Created","headers":[{"name":"X-Powered-By","value":"Express"},{"name":"Access-Control-Allow-Origin","value":"*"},{"name":"Content-Type","value":"application/json; charset=utf-8"},{"name":"Content-Length","value":"202"},{"name":"ETag","value":"W/\"ca-uDpOTDpTrigAeTONQdsA21Oifwk\""},{"name":"Date","value":"Fri, 16 May 2025 10:18:52 GMT"},{"name":"Connection","value":"keep-alive"},{"name":"Keep-Alive","value":"timeout=5"}],"fetchUid":"b1a0c011e6373bdf5f1d1869bfa871cf"}},"afterSnapshot":"after@call@6"}
+{"type":"before","callId":"call@8","startTime":2470.897,"apiName":"apiResponse.json","class":"APIRequestContext","method":"fetchResponseBody","params":{"fetchUid":"b1a0c011e6373bdf5f1d1869bfa871cf"},"stepId":"pw:api@6","beforeSnapshot":"before@call@8"}
+{"type":"after","callId":"call@8","endTime":2471.941,"result":{"binary":"<Buffer>"},"afterSnapshot":"after@call@8"}
+{"type":"before","callId":"call@10","startTime":2498.06,"apiName":"apiRequestContext.post","class":"APIRequestContext","method":"fetch","params":{"url":"http://localhost:5000/api/tasks","method":"POST","jsonData":"{\"title\":\"Task 2 - 1747390732704\",\"description\":\"Another task for testing\",\"dueDate\":\"2025-12-31T23:59:59.000Z\",\"priority\":\"High\",\"completed\":false}"},"stepId":"pw:api@8","beforeSnapshot":"before@call@10"}
+{"type":"log","callId":"call@10","time":2502.915,"message":"→ POST http://localhost:5000/api/tasks"}
+{"type":"log","callId":"call@10","time":2502.974,"message":"  user-agent: Playwright/1.50.1 (x64; windows 10.0) node/22.13"}
+{"type":"log","callId":"call@10","time":2502.996,"message":"  accept: */*"}
+{"type":"log","callId":"call@10","time":2503.017,"message":"  accept-encoding: gzip,deflate,br"}
+{"type":"log","callId":"call@10","time":2503.034,"message":"  content-type: application/json"}
+{"type":"log","callId":"call@10","time":2503.054,"message":"  content-length: 148"}
+{"type":"log","callId":"call@10","time":2524.794,"message":"← 201 Created"}
+{"type":"log","callId":"call@10","time":2524.8450000000003,"message":"  x-powered-by: Express"}
+{"type":"log","callId":"call@10","time":2524.868,"message":"  access-control-allow-origin: *"}
+{"type":"log","callId":"call@10","time":2524.891,"message":"  content-type: application/json; charset=utf-8"}
+{"type":"log","callId":"call@10","time":2524.909,"message":"  content-length: 208"}
+{"type":"log","callId":"call@10","time":2524.928,"message":"  etag: W/\"d0-UuoXP5VskVvksHjKmNHUJ1lp7xs\""}
+{"type":"log","callId":"call@10","time":2524.943,"message":"  date: Fri, 16 May 2025 10:18:52 GMT"}
+{"type":"log","callId":"call@10","time":2524.9629999999997,"message":"  connection: keep-alive"}
+{"type":"log","callId":"call@10","time":2524.983,"message":"  keep-alive: timeout=5"}
+{"type":"after","callId":"call@10","endTime":2525.2870000000003,"result":{"response":{"url":"http://localhost:5000/api/tasks","status":201,"statusText":"Created","headers":[{"name":"X-Powered-By","value":"Express"},{"name":"Access-Control-Allow-Origin","value":"*"},{"name":"Content-Type","value":"application/json; charset=utf-8"},{"name":"Content-Length","value":"208"},{"name":"ETag","value":"W/\"d0-UuoXP5VskVvksHjKmNHUJ1lp7xs\""},{"name":"Date","value":"Fri, 16 May 2025 10:18:52 GMT"},{"name":"Connection","value":"keep-alive"},{"name":"Keep-Alive","value":"timeout=5"}],"fetchUid":"79d8c38f391839496d442a55d5ceb397"}},"afterSnapshot":"after@call@10"}
+{"type":"before","callId":"call@12","startTime":2541.293,"apiName":"apiResponse.json","class":"APIRequestContext","method":"fetchResponseBody","params":{"fetchUid":"79d8c38f391839496d442a55d5ceb397"},"stepId":"pw:api@9","beforeSnapshot":"before@call@12"}
+{"type":"after","callId":"call@12","endTime":2541.737,"result":{"binary":"<Buffer>"},"afterSnapshot":"after@call@12"}
+{"type":"before","callId":"call@14","startTime":2555.9700000000003,"apiName":"apiRequestContext.get","class":"APIRequestContext","method":"fetch","params":{"url":"http://localhost:5000/api/tasks","method":"GET"},"stepId":"pw:api@11","beforeSnapshot":"before@call@14"}
+{"type":"log","callId":"call@14","time":2558.276,"message":"→ GET http://localhost:5000/api/tasks"}
+{"type":"log","callId":"call@14","time":2558.335,"message":"  user-agent: Playwright/1.50.1 (x64; windows 10.0) node/22.13"}
+{"type":"log","callId":"call@14","time":2558.368,"message":"  accept: */*"}
+{"type":"log","callId":"call@14","time":2558.39,"message":"  accept-encoding: gzip,deflate,br"}
+{"type":"log","callId":"call@14","time":2574.168,"message":"← 200 OK"}
+{"type":"log","callId":"call@14","time":2574.24,"message":"  x-powered-by: Express"}
+{"type":"log","callId":"call@14","time":2574.264,"message":"  access-control-allow-origin: *"}
+{"type":"log","callId":"call@14","time":2574.288,"message":"  content-type: application/json; charset=utf-8"}
+{"type":"log","callId":"call@14","time":2574.31,"message":"  content-length: 413"}
+{"type":"log","callId":"call@14","time":2574.328,"message":"  etag: W/\"19d-ECTwFaBeW/psE8XZuBcPXtIGBiA\""}
+{"type":"log","callId":"call@14","time":2574.35,"message":"  date: Fri, 16 May 2025 10:18:52 GMT"}
+{"type":"log","callId":"call@14","time":2574.371,"message":"  connection: keep-alive"}
+{"type":"log","callId":"call@14","time":2574.388,"message":"  keep-alive: timeout=5"}
+{"type":"after","callId":"call@14","endTime":2574.6620000000003,"result":{"response":{"url":"http://localhost:5000/api/tasks","status":200,"statusText":"OK","headers":[{"name":"X-Powered-By","value":"Express"},{"name":"Access-Control-Allow-Origin","value":"*"},{"name":"Content-Type","value":"application/json; charset=utf-8"},{"name":"Content-Length","value":"413"},{"name":"ETag","value":"W/\"19d-ECTwFaBeW/psE8XZuBcPXtIGBiA\""},{"name":"Date","value":"Fri, 16 May 2025 10:18:52 GMT"},{"name":"Connection","value":"keep-alive"},{"name":"Keep-Alive","value":"timeout=5"}],"fetchUid":"1cda5a13bbce6665ff50ea1ee1c9696c"}},"afterSnapshot":"after@call@14"}
+{"type":"before","callId":"call@16","startTime":2580.495,"apiName":"apiResponse.json","class":"APIRequestContext","method":"fetchResponseBody","params":{"fetchUid":"1cda5a13bbce6665ff50ea1ee1c9696c"},"stepId":"pw:api@12","beforeSnapshot":"before@call@16"}
+{"type":"after","callId":"call@16","endTime":2581.295,"result":{"binary":"<Buffer>"},"afterSnapshot":"after@call@16"}
+{"type":"before","callId":"call@18","startTime":2588.353,"apiName":"apiRequestContext.post","class":"APIRequestContext","method":"fetch","params":{"url":"http://localhost:5000/api/tasks","method":"POST","jsonData":"{\"title\":\"Temp Task - 1747390732918\",\"description\":\"Temporary task\",\"dueDate\":\"2025-12-31T23:59:59.000Z\",\"priority\":\"Low\",\"completed\":false}"},"stepId":"pw:api@13","beforeSnapshot":"before@call@18"}
+{"type":"log","callId":"call@18","time":2590.351,"message":"→ POST http://localhost:5000/api/tasks"}
+{"type":"log","callId":"call@18","time":2590.4139999999998,"message":"  user-agent: Playwright/1.50.1 (x64; windows 10.0) node/22.13"}
+{"type":"log","callId":"call@18","time":2590.439,"message":"  accept: */*"}
+{"type":"log","callId":"call@18","time":2590.4629999999997,"message":"  accept-encoding: gzip,deflate,br"}
+{"type":"log","callId":"call@18","time":2590.487,"message":"  content-type: application/json"}
+{"type":"log","callId":"call@18","time":2590.51,"message":"  content-length: 140"}
+{"type":"log","callId":"call@18","time":2621.225,"message":"← 201 Created"}
+{"type":"log","callId":"call@18","time":2625.385,"message":"  x-powered-by: Express"}
+{"type":"log","callId":"call@18","time":2625.417,"message":"  access-control-allow-origin: *"}
+{"type":"log","callId":"call@18","time":2625.44,"message":"  content-type: application/json; charset=utf-8"}
+{"type":"log","callId":"call@18","time":2625.458,"message":"  content-length: 200"}
+{"type":"log","callId":"call@18","time":2625.474,"message":"  etag: W/\"c8-8BDRQM0ZCFHbGjfAV0p19chFqHY\""}
+{"type":"log","callId":"call@18","time":2625.494,"message":"  date: Fri, 16 May 2025 10:18:52 GMT"}
+{"type":"log","callId":"call@18","time":2625.516,"message":"  connection: keep-alive"}
+{"type":"log","callId":"call@18","time":2625.538,"message":"  keep-alive: timeout=5"}
+{"type":"after","callId":"call@18","endTime":2625.8379999999997,"result":{"response":{"url":"http://localhost:5000/api/tasks","status":201,"statusText":"Created","headers":[{"name":"X-Powered-By","value":"Express"},{"name":"Access-Control-Allow-Origin","value":"*"},{"name":"Content-Type","value":"application/json; charset=utf-8"},{"name":"Content-Length","value":"200"},{"name":"ETag","value":"W/\"c8-8BDRQM0ZCFHbGjfAV0p19chFqHY\""},{"name":"Date","value":"Fri, 16 May 2025 10:18:52 GMT"},{"name":"Connection","value":"keep-alive"},{"name":"Keep-Alive","value":"timeout=5"}],"fetchUid":"d23b313823f5b62ba68085a211127bd9"}},"afterSnapshot":"after@call@18"}
+{"type":"before","callId":"call@20","startTime":2653.047,"apiName":"apiResponse.json","class":"APIRequestContext","method":"fetchResponseBody","params":{"fetchUid":"d23b313823f5b62ba68085a211127bd9"},"stepId":"pw:api@15","beforeSnapshot":"before@call@20"}
+{"type":"after","callId":"call@20","endTime":2653.522,"result":{"binary":"<Buffer>"},"afterSnapshot":"after@call@20"}
+{"type":"before","callId":"call@22","startTime":2661.831,"apiName":"apiRequestContext.delete","class":"APIRequestContext","method":"fetch","params":{"url":"http://localhost:5000/api/tasks/6827110c0e0a6342cf5d5785","method":"DELETE"},"stepId":"pw:api@16","beforeSnapshot":"before@call@22"}
+{"type":"log","callId":"call@22","time":2663.494,"message":"→ DELETE http://localhost:5000/api/tasks/6827110c0e0a6342cf5d5785"}
+{"type":"log","callId":"call@22","time":2663.54,"message":"  user-agent: Playwright/1.50.1 (x64; windows 10.0) node/22.13"}
+{"type":"log","callId":"call@22","time":2663.56,"message":"  accept: */*"}
+{"type":"log","callId":"call@22","time":2663.575,"message":"  accept-encoding: gzip,deflate,br"}
+{"type":"log","callId":"call@22","time":2676.142,"message":"← 204 No Content"}
+{"type":"log","callId":"call@22","time":2676.183,"message":"  x-powered-by: Express"}
+{"type":"log","callId":"call@22","time":2676.202,"message":"  access-control-allow-origin: *"}
+{"type":"log","callId":"call@22","time":2676.283,"message":"  date: Fri, 16 May 2025 10:18:53 GMT"}
+{"type":"log","callId":"call@22","time":2676.307,"message":"  connection: keep-alive"}
+{"type":"log","callId":"call@22","time":2676.326,"message":"  keep-alive: timeout=5"}
+{"type":"after","callId":"call@22","endTime":2676.5879999999997,"result":{"response":{"url":"http://localhost:5000/api/tasks/6827110c0e0a6342cf5d5785","status":204,"statusText":"No Content","headers":[{"name":"X-Powered-By","value":"Express"},{"name":"Access-Control-Allow-Origin","value":"*"},{"name":"Date","value":"Fri, 16 May 2025 10:18:53 GMT"},{"name":"Connection","value":"keep-alive"},{"name":"Keep-Alive","value":"timeout=5"}],"fetchUid":"3de898b6d3840da54f83c726e25f5f8e"}},"afterSnapshot":"after@call@22"}
+{"type":"before","callId":"call@24","startTime":2688.984,"apiName":"apiRequestContext.get","class":"APIRequestContext","method":"fetch","params":{"url":"http://localhost:5000/api/tasks","method":"GET"},"stepId":"pw:api@18","beforeSnapshot":"before@call@24"}
+{"type":"log","callId":"call@24","time":2690.633,"message":"→ GET http://localhost:5000/api/tasks"}
+{"type":"log","callId":"call@24","time":2690.687,"message":"  user-agent: Playwright/1.50.1 (x64; windows 10.0) node/22.13"}
+{"type":"log","callId":"call@24","time":2690.707,"message":"  accept: */*"}
+{"type":"log","callId":"call@24","time":2690.7290000000003,"message":"  accept-encoding: gzip,deflate,br"}
+{"type":"log","callId":"call@24","time":2702.362,"message":"← 200 OK"}
+{"type":"log","callId":"call@24","time":2702.419,"message":"  x-powered-by: Express"}
+{"type":"log","callId":"call@24","time":2702.444,"message":"  access-control-allow-origin: *"}
+{"type":"log","callId":"call@24","time":2702.4790000000003,"message":"  content-type: application/json; charset=utf-8"}
+{"type":"log","callId":"call@24","time":2702.504,"message":"  content-length: 413"}
+{"type":"log","callId":"call@24","time":2702.6130000000003,"message":"  etag: W/\"19d-ECTwFaBeW/psE8XZuBcPXtIGBiA\""}
+{"type":"log","callId":"call@24","time":2702.643,"message":"  date: Fri, 16 May 2025 10:18:53 GMT"}
+{"type":"log","callId":"call@24","time":2702.674,"message":"  connection: keep-alive"}
+{"type":"log","callId":"call@24","time":2702.692,"message":"  keep-alive: timeout=5"}
+{"type":"after","callId":"call@24","endTime":2703.0299999999997,"result":{"response":{"url":"http://localhost:5000/api/tasks","status":200,"statusText":"OK","headers":[{"name":"X-Powered-By","value":"Express"},{"name":"Access-Control-Allow-Origin","value":"*"},{"name":"Content-Type","value":"application/json; charset=utf-8"},{"name":"Content-Length","value":"413"},{"name":"ETag","value":"W/\"19d-ECTwFaBeW/psE8XZuBcPXtIGBiA\""},{"name":"Date","value":"Fri, 16 May 2025 10:18:53 GMT"},{"name":"Connection","value":"keep-alive"},{"name":"Keep-Alive","value":"timeout=5"}],"fetchUid":"0596a486dd28fb39775f752f68f894b6"}},"afterSnapshot":"after@call@24"}
+{"type":"before","callId":"call@26","startTime":2724.552,"apiName":"apiResponse.json","class":"APIRequestContext","method":"fetchResponseBody","params":{"fetchUid":"0596a486dd28fb39775f752f68f894b6"},"stepId":"pw:api@19","beforeSnapshot":"before@call@26"}
+{"type":"after","callId":"call@26","endTime":2725.099,"result":{"binary":"<Buffer>"},"afterSnapshot":"after@call@26"}
+{"type":"before","callId":"call@28","startTime":2744.566,"apiName":"apiRequestContext.delete","class":"APIRequestContext","method":"fetch","params":{"url":"http://localhost:5000/api/tasks/6827110c0e0a6342cf5d577e","method":"DELETE"},"stepId":"pw:api@23","beforeSnapshot":"before@call@28"}
+{"type":"log","callId":"call@28","time":2746.075,"message":"→ DELETE http://localhost:5000/api/tasks/6827110c0e0a6342cf5d577e"}
+{"type":"log","callId":"call@28","time":2746.123,"message":"  user-agent: Playwright/1.50.1 (x64; windows 10.0) node/22.13"}
+{"type":"log","callId":"call@28","time":2746.151,"message":"  accept: */*"}
+{"type":"log","callId":"call@28","time":2746.17,"message":"  accept-encoding: gzip,deflate,br"}
+{"type":"log","callId":"call@28","time":2765.543,"message":"← 204 No Content"}
+{"type":"log","callId":"call@28","time":2765.651,"message":"  x-powered-by: Express"}
+{"type":"log","callId":"call@28","time":2766.99,"message":"  access-control-allow-origin: *"}
+{"type":"log","callId":"call@28","time":2767.027,"message":"  date: Fri, 16 May 2025 10:18:53 GMT"}
+{"type":"log","callId":"call@28","time":2767.051,"message":"  connection: keep-alive"}
+{"type":"log","callId":"call@28","time":2767.189,"message":"  keep-alive: timeout=5"}
+{"type":"after","callId":"call@28","endTime":2767.4809999999998,"result":{"response":{"url":"http://localhost:5000/api/tasks/6827110c0e0a6342cf5d577e","status":204,"statusText":"No Content","headers":[{"name":"X-Powered-By","value":"Express"},{"name":"Access-Control-Allow-Origin","value":"*"},{"name":"Date","value":"Fri, 16 May 2025 10:18:53 GMT"},{"name":"Connection","value":"keep-alive"},{"name":"Keep-Alive","value":"timeout=5"}],"fetchUid":"6dcd61c34364a788a3b712a4b00804e1"}},"afterSnapshot":"after@call@28"}
+{"type":"before","callId":"call@30","startTime":2801.943,"apiName":"apiRequestContext.delete","class":"APIRequestContext","method":"fetch","params":{"url":"http://localhost:5000/api/tasks/6827110c0e0a6342cf5d5781","method":"DELETE"},"stepId":"pw:api@24","beforeSnapshot":"before@call@30"}
+{"type":"log","callId":"call@30","time":2804.267,"message":"→ DELETE http://localhost:5000/api/tasks/6827110c0e0a6342cf5d5781"}
+{"type":"log","callId":"call@30","time":2804.318,"message":"  user-agent: Playwright/1.50.1 (x64; windows 10.0) node/22.13"}
+{"type":"log","callId":"call@30","time":2804.335,"message":"  accept: */*"}
+{"type":"log","callId":"call@30","time":2804.352,"message":"  accept-encoding: gzip,deflate,br"}
